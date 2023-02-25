@@ -5,6 +5,7 @@ public class Picker
     private int salary = 0;
     private boolean isPayed;
     private int countPickedOrders;
+    Warehouse warehouse;
 
     public int getSalary() {
         return salary;
@@ -14,25 +15,29 @@ public class Picker
         return isPayed;
     }
 
+    @Override
     public String toString() {
-        int bonus = 0;
-        if(isPayed){
-            bonus = 70000;
-        }
-        return "Заработная плата сборщика: " + salary + ", Бонус сборщика: " + bonus;
+        return "Picker{" +
+                "salary=" + salary +
+                ", isPayed=" + isPayed +
+                ", countPickedOrders=" + countPickedOrders +
+                ", warehouse=" + warehouse +
+                '}';
     }
 
-    public Picker(Warehouse warehouse) {}
+    public Picker(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
 
     public void doWork() {
         salary += 80;
         countPickedOrders += 1;
-        Warehouse.setCountPickedOrders(countPickedOrders);
+        warehouse.setCountPickedOrders(countPickedOrders);
     }
 
     public void bonus() {
         if (!isPayed) {
-            if (Warehouse.getCountPickedOrders() >= 10000) {
+            if (warehouse.getCountPickedOrders() >= 10000) {
                 salary += 70000;
             } else {
                 System.out.println("Бонус пока не доступен");

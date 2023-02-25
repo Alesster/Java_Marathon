@@ -1,22 +1,15 @@
 package day11.task2;
 
 public class Warrior
-        extends Hero
-        implements PhysAttack {
-    double physAtt;
+        extends Hero {
+    final double WARRIOR_PHYSDEF = 80;
+    final double WARRIOR_MAGICDEF = 0;
+    final double WARRIOR_PHYSATT = 30;
 
     public Warrior() {
-        health = 100;
-        physDef = 80;
-        magicDef = 0;
-        physAtt = 30;
-    }
-
-    public void physicalAttack(Hero hero) {
-        hero.health = hero.health - (int) (physAtt * (1 - hero.physDef / 100));
-        if (hero.health < MIN_HEALTH) {
-            hero.health = MIN_HEALTH;
-        }
+        physDef = WARRIOR_PHYSDEF;
+        magicDef = WARRIOR_MAGICDEF;
+        physAtt = WARRIOR_PHYSATT;
     }
 
     public String toString() {

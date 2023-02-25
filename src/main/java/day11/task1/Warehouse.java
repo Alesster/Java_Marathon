@@ -21,6 +21,6 @@ public class Warehouse {
     }
 
     public String toString() {
-        return "Количество собранных заказов: " + countPickedOrders + " Количество собранных заказов: " + countDeliveredOrders;
+        return "Количество собранных заказов: " + countPickedOrders + ", Количество доставленных заказов: " + countDeliveredOrders;
     }
 }

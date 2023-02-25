@@ -2,27 +2,22 @@ package day11.task2;
 
 public class Shaman
         extends Hero
-        implements PhysAttack, MagicAttack, Healer {
-     double physAtt;
-     double magicAtt;
+        implements MagicAttack, Healer {
+    final double SHAMAN_PHYSDEF = 20;
+    final double SHAMAN_MAGICDEF = 20;
+    final double SHAMAN_PHYSATT = 10;
+    final double SHAMAN_MAGICATT = 15;
+    double magicAtt;
 
     public Shaman() {
-        health = 100;
-        physDef = 20;
-        magicDef = 20;
-        physAtt = 10;
-        magicAtt = 15;
-    }
-
-    public void physicalAttack(Hero hero) {
-        hero.health = hero.health - (int)(physAtt * (1 - hero.physDef / 100));
-        if (hero.health < MIN_HEALTH) {
-            hero.health = MIN_HEALTH;
-        }
+        physDef = SHAMAN_PHYSDEF;
+        magicDef = SHAMAN_MAGICDEF;
+        physAtt = SHAMAN_PHYSATT;
+        magicAtt = SHAMAN_MAGICATT;
     }
 
     public void magicalAttack(Hero hero) {
-        hero.health = hero.health - (int)(magicAtt * (1 - hero.magicDef / 100));
+        hero.health = hero.health - (int) (magicAtt * (1 - hero.magicDef / 100));
         if (hero.health < MIN_HEALTH) {
             hero.health = MIN_HEALTH;
         }
