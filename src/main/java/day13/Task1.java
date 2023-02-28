@@ -22,7 +22,7 @@ public class Task1 {
 
 
 
-    //    System.out.println(MessageDatabase.getMessages());
+//        System.out.println(MessageDatabase.getMessages());
         MessageDatabase.showDialog(user1, user3);
 
 //        user1.subscribe(user2);

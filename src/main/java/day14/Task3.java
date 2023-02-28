@@ -27,9 +27,7 @@ public class Task3 {
             if (age < 0) {
                 throw new RuntimeException("Некорректный входной файл");
             }
-            Human person = new Human();
-            person.name = numbersString[0];
-            person.age = age;
+            Human person = new Human(numbersString[0], age);
             peopleList.add(person);
         }
 
