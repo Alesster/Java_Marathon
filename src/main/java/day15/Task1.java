@@ -13,31 +13,26 @@ public class Task1 {
         String path2 = "src" + sep + "main" + sep + "resources" + sep + "missing_shoes.txt";
         File file1 = new File(path1);
         File file2 = new File(path2);
-        Scanner scan = null;
+        Scanner scan;
+        PrintWriter writer;
         try {
             scan = new Scanner(file1, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            System.out.println("Файл не найден");
-        }
-
-        PrintWriter writer = null;
-        try {
             writer = new PrintWriter(file2, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            System.out.println("Что-то не так с файлом");
-        }
 
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            String[] numString = line.split(";");
-            if (numString.length != 3 ){
-                throw new RuntimeException("Некорректный входной файл");
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] numString = line.split(";");
+                if (numString.length != 3) {
+                    throw new RuntimeException("Некорректный входной файл");
+                }
+                int num = Integer.parseInt(numString[numString.length - 1]);
+                if (num == 0) {
+                    String str = numString[0] + ", " + numString[1] + ", " + numString[2];
+                    writer.println(str);
+                }
             }
-            int num = Integer.parseInt(numString[numString.length - 1]);
-            if (num == 0){
-                String str = numString[0] + ", " + numString[1] + ", " + numString[2];
-                writer.println(str);
-            }
+        }catch (IOException e){
+            throw new RuntimeException(e);
         }
 
         writer.close();

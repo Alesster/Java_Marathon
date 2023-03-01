@@ -19,8 +19,7 @@ public class Task1 {
             FileNotFoundException {
         int nsum = 0;
         Scanner scan = new Scanner(file);
-        String line = scan.nextLine();
-        String[] numbersString = line.split(" ");
+        String[] numbersString = scan.nextLine().split(" ");
         int n = numbersString.length;
         if(n != 10) {
             throw new RuntimeException("Некорректный входной файл");

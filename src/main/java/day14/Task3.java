@@ -21,14 +21,12 @@ public class Task3 {
         List<Human> peopleList = new ArrayList<>();
         Scanner scan = new Scanner(file);
         while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            String[] numbersString = line.split(" ");
+            String[] numbersString = scan.nextLine().split(" ");
             int age = Integer.parseInt(numbersString[numbersString.length - 1]);
             if (age < 0) {
                 throw new RuntimeException("Некорректный входной файл");
             }
-            Human person = new Human(numbersString[0], age);
-            peopleList.add(person);
+            peopleList.add(new Human(numbersString[0], age));
         }
 
         return peopleList;
