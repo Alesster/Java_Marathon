@@ -23,7 +23,7 @@ public class Task1 {
             System.out.printf(avsum + " --> %,.3f", avsum);
             scan.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("File not found");
         }
 
 
